@@ -15,11 +15,87 @@ public class App {
         System.out.println("METODO AULA 1: "+metAula1(5));
         System.out.println("METODO AULA 2: "+metAula2Fib(1));
         System.out.println("METODO AULA 3: "+metAula3(2, 4));
+        System.out.println("METODO AULA 2 FIB: "+aula2Metodo3Fib(5));
+        System.out.println("METODO AULA 2 SOMATORIO: "+aula2Metodo4Som(5,9));
+        System.out.println("METODO AULA 2 PALINDROME: "+aula2Metodo5Palindromo("bob"));
     }
 
      
     
+    public static int aula2Metodo1Fatorial(int n){
+        //!5 = 5*4*3*2*1
+        if(n==0){
+            return 1;
+        }
+        else{
+            return n*aula2Metodo1Fatorial(n-1);
+        }
+    }
+
+    public static int aula2Metodo2somatorio(int n){ 
+        int res=0;
+        if(n==0){
+            return 0;
+        }
+        if(n<0){
+            throw new IllegalArgumentException("n deve ser maior que 0");
+        }
+        else{
+            res = n + aula2Metodo2somatorio(n-1);
+        }
+        return res;
+    }
+
+    public static int aula2Metodo3Fib(int n){
+        // 1 1 2 3 5 8 13 21 34 55
+        int res = 0;
+        if(n==0){
+            return 0;
+        }
+        if(n==1){
+            return 1;
+        }
+        else{
+            res = aula2Metodo3Fib(n-1)+aula2Metodo3Fib(n-2);
+        }
+        return res;        
+    }
+
+    public static int aula2Metodo4Som(int k,int j){
+        int res = 0;
+        if(j<k){
+            return res;
+        }
+        else{
+            res = j + aula2Metodo4Som(k, j-1);
+        }
+        return res;
+    }
+
+    public static boolean aula2Metodo5Palindromo(String s){ 
+        return aula2Metodo5Palindromo(s, 0, s.length()-1);
+    }
+
+    private static boolean aula2Metodo5Palindromo(String s, int i,int j){
+        if(i>=j){
+            return true;
+        }
+        if(s.charAt(i)!=s.charAt(j)){
+            return false;
+        }
         
+        return aula2Metodo5Palindromo(s, i+1, j-1);
+    }
+
+    
+
+
+
+    public static int aula2Metodo2(int n){
+       return 0;
+    }
+
+
     
     public static int met1(int a, int b){
         int res = 0;
@@ -117,7 +193,7 @@ public class App {
         if(n<=0){
             return 0;
         }
-        if(cont==1){
+        if(cont==1){https://github.com/PUCRS-Poli-ES-ALAV/2-mais-exercicios-de-recursao-benjamin-bernardo
             res = 1;
         }
         if(cont==2){
